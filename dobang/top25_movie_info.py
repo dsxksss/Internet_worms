@@ -1,7 +1,9 @@
 import csv
+import time
 import requests
 from lxml import html
 from fake_useragent import UserAgent
+start_time = time.time()  # 记录程序开始运行时间
 
 movies = []
 movie_page_urls = []
@@ -55,4 +57,6 @@ with open("./豆瓣top25电影信息.csv", "w", encoding="utf-8") as w:
     writer.writerows(movies)  # 写入全部电影数据
 
 # 结束提示信息
+end_time = time.time()  # 记录程序结束运行时间
+print('运行耗时 %f second' % (end_time - start_time))
 print("---------------\033[32m爬取完成\033[0m---------------")
